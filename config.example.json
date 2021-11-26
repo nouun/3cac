@@ -1,0 +1,63 @@
+{
+  "api": {
+    "key": "<key>",
+    "secret": "<secret>"
+  },
+  "updateTime": "1h 2m 3s",
+  "readOnly": false,
+  "bots": [
+    {
+      "name": "Some Name",
+      "pairs": {
+        "min": 4,
+        "max": 10,
+        "stopIfNotEnough": true,
+        "startIfEnough": true,
+        "quote": "USDT",
+        "exclude": [
+          "DOGE",
+          "ELON",
+          "SHIB",
+          "SAFEMOON"
+        ],
+        "include": [
+          "MATIC",
+          "MANA"
+        ]
+      },
+      "filter": {
+        "performance": {
+          "sort": "day",
+          "hour": {
+            "min": 1,
+            "max": 2
+          },
+          "day": {
+            "min": 1,
+            "max": 2
+          },
+          "week": {
+            "min": 1,
+            "max": 2
+          },
+          "month": {
+            "min": 1,
+            "max": 2
+          },
+          "year": {
+            "min": 1,
+            "max": 2
+          },
+        },
+        "marketCap": {
+          "min": 1,
+          "max": 2
+        },
+        "volume": {
+          "min": 1,
+          "max": 2
+        }
+      }
+    }
+  ]
+}
