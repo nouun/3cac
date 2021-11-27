@@ -18,9 +18,13 @@
   - `Bots write`: Required to update bot pairs. (This can be disabled if using `readOnly`, see [config](#config) below.
   - `Accounts read`: Required to get connected exchanges to ensure that pairs are valid.
 2) Clone the repository locally.
-3) Copy the example config from `config.example.json` to `config.json`.
-4) Edit the config to your liking, see [config](#config) below for value explanations.
-5) Run the bot.
+3) Install dependencies by running the following command from inside the cloned directory. 
+```sh
+npm i
+```
+4) Copy the example config from `config.example.json` to `config.json`.
+5) Edit the config to your liking, see [config](#config) below for value explanations.
+6) Run the bot.
   - On Windows, double click the `run.bat` file.
   - On Linux or macOS, open a terminal and run `npm run start`
   
