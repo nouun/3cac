@@ -3,3 +3,4 @@ if not exist .\dist\ (
 )
 
 npm run run
+pause
