@@ -9,7 +9,7 @@
 
 ## Prerequisites
 
-- [Node.js & NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+- [Node.js v13 or later & NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 
 ## Setup
 
