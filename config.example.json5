@@ -1,0 +1,63 @@
+{
+  api: {
+    key: "<key>",               //  3Commas API key
+    secret: "<secret>"          //  3Commas API secret
+  },
+  updateTime: "1h 2m 3s",       //  Time between updates. E.g., "1h", "5m", "2m 30s", "1h 30m", etc.
+  readOnly: false,              //? If true, pairs will only be printed and won't update bots
+  bots: [                       //  List of bot rules
+    {
+      name: "Some Name",        //  The bot name, supports regex. For example, "\dAC$" will only
+                                //                 match bots that end with a number then "AC"
+      pairs: {
+        min: 4,                 //? The minimum pairs (See stopBotIfNotEnough and startIfEnough)
+        max: 10,                //? The maximum pairs, will cut off all others
+        stopIfNotEnough: true,  //? Stop the bot if there are less tha min pairs
+        startIfEnough: true,    //? Start the bot if it's stopped and there are enough pairs now
+        quote: "USDT",          //  The quote price. E.g., "BTC", "USDT", "BNB", etc.
+        exclude: [              //? Base coins to always ignore
+          "ELON",
+          "SHIB",
+          "SAFEMOON"
+        ],
+        include: [              //? Base coins to always add
+          "MATIC",
+          "MANA"
+        ]
+      },
+      filter: {
+        performance: {
+          sort: "day",          //  The performance option to sort results by
+          hour: {               //? The min and max performance in the last hour
+            min: 1,
+            max: 2
+          },
+          day: {                //? The min and max performance in the last day
+            min: 1,
+            max: 2
+          },
+          week: {               //? The min and max performance in the last week
+            min: 1,
+            max: 2
+          },
+          month: {              //? The min and max performance in the last month
+            min: 1,
+            max: 2
+          },
+          year: {               //? The min and max performance in the last year
+            min: 1,
+            max: 2
+          },
+        },
+        marketCap: {            //? The min and max market cap
+          min: 1,
+          max: 2
+        },
+        volume: {               //? The min and max volume
+          min: 1,
+          max: 2
+        }
+      }
+    }
+  ]
+}

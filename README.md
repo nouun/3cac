@@ -23,70 +23,71 @@
 5) Run the bot.
     - On Windows, double click the `run.bat` file.
     - On Linux or macOS, open a terminal and run `npm i` to install dependencies, then run `npm run start` to start
-  
+
 ## Config
 
-All comments with start with `//?` are optional.
+All comments with start with `//?` are optional and can be omitted.
+Config is JSON5 so trailing commas, unquoted keys, and comments are all allowed.
 
 ```json5
 {
-  "api": {
-    "key": "<key>",               //  3Commas API key
-    "secret": "<secret>"          //  3Commas API secret
+  api: {
+    key: "<key>",               //  3Commas API key
+    secret: "<secret>"          //  3Commas API secret
   },
-  "updateTime": "1h 2m 3s",       //  Time between updates. E.g., "1h", "5m", "2m 30s", "1h 30m", etc.
-  "readOnly": false,              //? If true, pairs will only be printed and won't update bots
-  "bots": [                       //  List of bot rules
+  updateTime: "1h 2m 3s",       //  Time between updates. E.g., "1h", "5m", "2m 30s", "1h 30m", etc.
+  readOnly: false,              //? If true, pairs will only be printed and won't update bots
+  bots: [                       //  List of bot rules
     {
-      "name": "Some Name",        //  The bot name, supports regex. For example, "\dAC$" will only
-                                  //                 match bots that end with a number then "AC"
-      "pairs": {
-        "min": 4,                 //? The minimum pairs (See stopBotIfNotEnough and startIfEnough)
-        "max": 10,                //? The maximum pairs, will cut off all others
-        "stopIfNotEnough": true,  //? Stop the bot if there are less tha min pairs
-        "startIfEnough": true,    //? Start the bot if it's stopped and there are enough pairs now
-        "quote": "USDT",          //  The quote price. E.g., "BTC", "USDT", "BNB", etc.
-        "exclude": [              //? Base coins to always ignore
+      name: "Some Name",        //  The bot name, supports regex. For example, "\dAC$" will only
+                                //                 match bots that end with a number then "AC"
+      pairs: {
+        min: 4,                 //? The minimum pairs (See stopBotIfNotEnough and startIfEnough)
+        max: 10,                //? The maximum pairs, will cut off all others
+        stopIfNotEnough: true,  //? Stop the bot if there are less tha min pairs
+        startIfEnough: true,    //? Start the bot if it's stopped and there are enough pairs now
+        quote: "USDT",          //  The quote price. E.g., "BTC", "USDT", "BNB", etc.
+        exclude: [              //? Base coins to always ignore
           "ELON",
           "SHIB",
           "SAFEMOON"
         ],
-        "include": [              //? Base coins to always add
+        include: [              //? Base coins to always add
           "MATIC",
           "MANA"
         ]
       },
-      "filter": {
-        "performance": {
-          "sort": "day",          //  The performance option to sort results by
-          "hour": {               //? The min and max performance in the last hour
-            "min": 1,
-            "max": 2
+      filter: {
+        performance: {
+          sort: "day",          //  The performance option to sort results by
+          hour: {               //? The min and max performance in the last hour
+            min: 1,
+            max: 2
           },
-          "day": {                //? The min and max performance in the last day
-            "min": 1,
-            "max": 2
+          day: {                //? The min and max performance in the last day
+            min: 1,
+            max: 2
           },
-          "week": {               //? The min and max performance in the last week
-            "min": 1,
-            "max": 2
+          week: {               //? The min and max performance in the last week
+            min: 1,
+            max: 2
           },
-          "month": {              //? The min and max performance in the last month
-            "min": 1,
-            "max": 2
+          month: {              //? The min and max performance in the last month
+            min: 1,
+            max: 2
           },
-          "year": {               //? The min and max performance in the last year
-            "min": 1,
-            "max": 2
+          year: {               //? The min and max performance in the last year
+            min: 1,
+            max: 2
           },
         },
-        "marketCap": {            //? The min and max market cap
-          "min": 1,
-          "max": 2
+        marketCap: {            //? The min and max market cap
+          min: 1,
+          max: 2
         },
-        "volume": {               //? The min and max volume
-          "min": 1,
-          "max": 2
+        volume: {               //? The min and max volume
+          min: 1,
+          max: 2
         }
       }
     }
@@ -102,15 +103,17 @@ If you have any issues you're welcome to message me on Discord but it would be p
 
 ### Donations
 
-This is in no way at all srequired and I don't expect anyone to donate. If you still want to, you can support my caffiene addiction with one of the addresses below.
+This is in no way at all required and I don't expect anything at all.
+If you still want to, you can support my caffiene addiction with one of the addresses below.
+Feel free to DM me on Discord if you would like a different wallet.
+
+XLM: (Preferred)
+  - Wallet: `GAJ4BSGJE6UQHZAZ5U5IUOABPDCYPKPS3RFS2NVNGFGFXGVQDLBQJW2P`
+  - Memo: `1902282696`
 
 BTC:
   - Wallet: `37NEtoQN7sYMcDaqvQ1qSfAEC4DLRatFMK`
-  
+
 ETH: (ERC20)
   - Wallet: `0x5ebc9894060d3a7e0ec4b82f7ddb038474097ae9`
 
-XLM: 
-  - Wallet: `GAJ4BSGJE6UQHZAZ5U5IUOABPDCYPKPS3RFS2NVNGFGFXGVQDLBQJW2P`
-  - Memo: `1902282696`
-  

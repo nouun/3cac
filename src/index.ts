@@ -1,10 +1,22 @@
 import { API } from "3commas-typescript";
 import { fetchBubbles } from "./lib.js";
-import { readFileSync } from "fs";
+import { readFileSync, readdirSync } from "fs";
 import { validateConfig } from "./validator.js";
+import JSON5 from "json5";
 
-const rawdata = readFileSync("./config.json").toString();
-const config = <Options>JSON.parse(rawdata);
+const files = readdirSync("./");
+
+if (!(files.includes("config.json") || files.includes("config.json5"))) {
+  throw "Please copy example config from \"config.example.json5\" to \"config.json5\" and configure your settings."
+}
+
+if (files.includes("config.json") && !files.includes("config.json5")) {
+  console.log("WARNING: \"config.json\" will soon be deprecated, please rename to \"config.json5\" to ensure nothing breaks in the future.")
+}
+
+const fileName = files.includes("config.json5") ? "./config.json5" : "./config.json";
+const rawdata = readFileSync(fileName).toString();
+const config = <Options>JSON5.parse(rawdata);
 
 const api = new API({
   key: config.api.key,
