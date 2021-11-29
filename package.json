@@ -1,6 +1,6 @@
 {
   "name": "3cac",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Bot to automatically switch 3Commas composite bot pairs",
   "main": "./dist/index.js",
   "type": "module",
