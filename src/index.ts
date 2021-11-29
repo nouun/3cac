@@ -110,6 +110,7 @@ const run = async () => {
     const pairs = (botConfig.pairs.include ?? []).concat(bubblePairs)
       .map((base) => `${botConfig.pairs.quote}_${base}`)
       .filter((pair) => validPairs[marketCode].includes(pair))
+      .filter((pair, index, pairs) => pairs.indexOf(pair) == index)
       .slice(0, botConfig.pairs.max);
 
     if (pairs.length < botConfig.pairs.min ?? 0) {
