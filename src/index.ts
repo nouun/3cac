@@ -121,11 +121,11 @@ const run = async () => {
 
         try {
           await api.customRequest("POST", 1, `/bots/${bot.id}/disable`, { bot_id: bot.id });
-          console.log(`++ Stopped ${bot.name}`);
+          console.log("++ Stopped " + bot.name);
           disabledBots.push(bot.id);
         } catch (e) {
-          console.error(`!! Error stopping ${bot.name}`);
-          console.error(`!! ${e}`);
+          console.error("!! Error stopping " + bot.name);
+          console.error("!! " + e);
         }
       }
 
@@ -156,23 +156,23 @@ const run = async () => {
     newBot.pairs = backupPairs;
     try {
       await api.customRequest("PATCH", 1, `/bots/${bot.id}/update`, newBot);
-      console.log(`++ Updated ${bot.name}`);
+      console.log("++ Updated " + bot.name);
     } catch (e) {
-      console.error(`!! Error updating ${bot.name}`);
-      console.error(`!! ${e}`);
+      console.error("!! Error updating " + bot.name);
+      console.error("!! " + e);
     }
 
     if (botConfig.pairs.startIfEnough && disabledBots.includes(bot.id)) {
-      console.error("!! Starting bot ${bot.name}");
+      console.error("!! Starting bot " + bot.name);
 
       try {
         await api.customRequest("POST", 1, `/bots/${bot.id}/enable`, { bot_id: bot.id });
-        console.log(`++ Starting ${bot.name}`);
+        console.log("++ Starting " + bot.name);
 
         disabledBots = disabledBots.filter((id) => id != bot.id)
       } catch (e) {
-        console.error(`!! Error starting ${bot.name}`);
-        console.error(`!! ${e}`);
+        console.error("!! Error starting " + bot.name);
+        console.error("!! " + e);
       }
     }
   }
