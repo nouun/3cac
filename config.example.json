@@ -47,7 +47,7 @@
           "year": {
             "min": 1,
             "max": 2
-          },
+          }
         },
         "marketCap": {
           "min": 1,
