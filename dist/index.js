@@ -109,7 +109,8 @@ const run = async () => {
         }
         
         let botLastPairs = lastPairs[bot.id]
-        if (botLastPairs.length === pairs.length &&
+        if (!!botLastPairs &&
+            botLastPairs.length === pairs.length &&
             botLastPairs.every((value) => pairs.includes(value))) {
             console.log("!! Pairs are the same as last iteration");
             if (!progConfig.readOnly)
