@@ -57,7 +57,7 @@ const checkMaxMin = (value: number, maxMin?: MaxMin): boolean =>
   value < (maxMin?.max ?? Number.MAX_SAFE_INTEGER) &&
   value > (maxMin?.min ?? Number.MIN_SAFE_INTEGER);
 
-let lastPairs = [];
+let lastPairs = {};
 const validPairs = {};
 let bots = [];
 let disabledBots = [];
@@ -132,14 +132,16 @@ const run = async () => {
       return;
     }
 
-    if (lastPairs.length === pairs.length &&
-      lastPairs.every((value) => pairs.includes(value))) {
+    let botLastPairs = lastPairs[bot.id]
+    
+    if (botLastPairs.length === pairs.length &&
+      botLastPairs.every((value) => pairs.includes(value))) {
       console.log("!! Pairs are the same as last iteration");
       if (!progConfig.readOnly) console.log("!! Skipping update");
       return;
     }
 
-    lastPairs = [...pairs];
+    lastPairs[bot.id] = [...pairs];
 
     console.log("++ Found new pairs:");
 
