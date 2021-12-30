@@ -1,16 +1,13 @@
-{ pkgs ? import <nixpkgs> {} }:
-with pkgs;
-stdenv.mkDerivation {
-  name = "comick-js";
-
-  buildInputs = with pkgs; [
-    nodejs-16_x
-  ] ++ (with pkgs.nodePackages; [
-    npm
-  ]);
-
-  shellHook = ''
-    [[ ! -d "$(pwd)/node_modules" ]] && npm install
-    PATH="$PATH:$(pwd)/node_modules/.bin/"
-  '';
-}
+(import
+  (
+    let
+      lock = builtins.fromJSON (builtins.readFile ./flake.lock);
+    in
+    fetchTarball {
+      url = "https://github.com/edolstra/flake-compat/archive/${lock.nodes.flake-compat.locked.rev}.tar.gz";
+      sha256 = lock.nodes.flake-compat.locked.narHash;
+    }
+  )
+  {
+    src = ./.;
+  }).defaultNix
