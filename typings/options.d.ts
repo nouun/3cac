@@ -1,11 +1,27 @@
-interface ApiOptions {
+interface ThreeCommasOptions {
   key: string
   secret: string
+}
+
+interface LunarCrushOptions {
+  key: string
+  useLunarCRUSHed: boolean
+}
+
+interface ApiOptions {
+  threecommas: ThreeCommasOptions
+  lunarcrush?: LunarCrushOptions
 }
 
 interface MaxMin {
   max?: number
   min?: number
+}
+
+interface LunarCrushFilter {
+  altrank?: number,
+  galaxyscore?: number,
+  volatility?: number
 }
 
 interface PerformanceOptions {
@@ -20,6 +36,7 @@ interface PerformanceOptions {
 }
 
 interface FilterOptions {
+  lunarcrush?: LunarCrushFilter
   performance?: PerformanceOptions
   marketCap?: MaxMin
   volume?: MaxMin

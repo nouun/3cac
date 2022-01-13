@@ -32,8 +32,16 @@ Config is JSON5 so trailing commas, unquoted keys, and comments are all allowed.
 ```json5
 {
   api: {
-    key: "<key>",               //  3Commas API key
-    secret: "<secret>"          //  3Commas API secret
+    threecommas: {
+      key: "<key>",             //  3Commas API key
+      secret: "<secret>",       //  3Commas API secret
+    },
+    lunarcrush: {               //? Either useLunarCRUSHed or key are required if using LunarCrush filters
+      useLunarCRUSHed: true,    //? Use LunarCRUSHed to generate LunarCrush key
+                                //    Remove these lines if using key as this
+                                //    will override your key
+      key: "<key>",             //? Your personal API LunarCrush key.
+    },
   },
   updateTime: "1h 2m 3s",       //  Time between updates. E.g., "1h", "5m", "2m 30s", "1h 30m", etc.
   readOnly: false,              //? If true, pairs will only be printed and won't update bots
@@ -55,9 +63,16 @@ Config is JSON5 so trailing commas, unquoted keys, and comments are all allowed.
         include: [              //? Base coins to always add
           "MATIC",
           "MANA"
-        ]
+        ],
       },
       filter: {
+        lunarcrush: {           //? To use any LunarCrush filters, you need
+                                //    to setup either key or useLunarCRUSHed
+                                //    under lunarcrush at the top
+          altrank: 100,         //? Get the top X pairs based on AltRank:tm:
+          galaxyscore: 100,     //? Get the top X pairs based on GalaxyScore:tm:
+          volatility: 100,      //? Get the top X pairs based on volatility
+        },
         performance: {
           sort: "day",          //  The performance option to sort results by
           min5: {               //? The min and max performance in the last 5 minutes

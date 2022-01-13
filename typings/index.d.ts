@@ -43,3 +43,14 @@ interface Bubble {
   data: CurrencyData
 }
 
+interface LunarCrush {
+  s: string
+  vt: number
+  acr: number
+  gs: number
+}
+
+interface LunarCrushWrapper {
+  data: [LunarCrush]
+}
+

@@ -1,15 +1,23 @@
 import validate from "validate.js";
 
 const constraints = {
-  "api.key": {
+  "api.threecommas.key": {
     presence: true,
     type: "string",
     length: { is: 64 },
   },
-  "api.secret": {
+  "api.threecommas.secret": {
     presence: true,
     type: "string",
     length: { is: 200 },
+  },
+  "api.lunarcrush.useLunarCRUSHed": {
+    presence: false,
+    type: "boolean",
+  },
+  "api.lunarcrush.key": {
+    presence: false,
+    type: "string",
   },
   readOnly: {
     presence: false,
@@ -80,6 +88,18 @@ const botConstraints = {
   "pairs.include": {
     presence: false,
     type: "array",
+  },
+  "filter.lunarcrush.altrank": {
+    presence: false,
+    type: "number",
+  },
+  "filter.lunarcrush.galaxyscore": {
+    presence: false,
+    type: "number",
+  },
+  "filter.lunarcrush.volatility": {
+    presence: false,
+    type: "number",
   },
 };
 
