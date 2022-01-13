@@ -1,4 +1,6 @@
 interface PerformanceData {
+  min5: number
+  min15: number
   hour: number
   day: number
   week: number

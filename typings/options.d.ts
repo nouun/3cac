@@ -9,7 +9,9 @@ interface MaxMin {
 }
 
 interface PerformanceOptions {
-  sort?: "hour" | "day" | "week" | "month" | "year"
+  sort?: "min5" | "min15" | "hour" | "day" | "week" | "month" | "year"
+  min5?: MaxMin
+  min15?: MaxMin
   hour?: MaxMin
   day?: MaxMin
   week?: MaxMin

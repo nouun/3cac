@@ -63,7 +63,7 @@ const botConstraints = {
     "filter.performance.sort": {
         presence: false,
         type: "string",
-        inclusion: ["hour", "day", "week", "month", "year"],
+        inclusion: ["min5", "min15", "hour", "day", "week", "month", "year"],
     },
     "pairs.quote": {
         presence: true,
@@ -79,6 +79,8 @@ const botConstraints = {
     },
 };
 addMinMaxConstraints("pairs", botConstraints);
+addMinMaxConstraints("filter.performance.min5", botConstraints);
+addMinMaxConstraints("filter.performance.min15", botConstraints);
 addMinMaxConstraints("filter.performance.hour", botConstraints);
 addMinMaxConstraints("filter.performance.day", botConstraints);
 addMinMaxConstraints("filter.performance.week", botConstraints);

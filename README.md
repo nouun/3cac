@@ -44,7 +44,7 @@ Config is JSON5 so trailing commas, unquoted keys, and comments are all allowed.
       pairs: {
         min: 4,                 //? The minimum pairs (See stopBotIfNotEnough and startIfEnough)
         max: 10,                //? The maximum pairs, will cut off all others
-        stopIfNotEnough: true,  //? Stop the bot if there are less tha min pairs
+        stopIfNotEnough: true,  //? Stop the bot if there are less than min pairs
         startIfEnough: true,    //? Start the bot if it's stopped and there are enough pairs now
         quote: "USDT",          //  The quote price. E.g., "BTC", "USDT", "BNB", etc.
         exclude: [              //? Base coins to always ignore
@@ -60,6 +60,14 @@ Config is JSON5 so trailing commas, unquoted keys, and comments are all allowed.
       filter: {
         performance: {
           sort: "day",          //  The performance option to sort results by
+          min5: {               //? The min and max performance in the last 5 minutes
+            min: 1,
+            max: 2
+          },
+          min15: {              //? The min and max performance in the last 15 minutes
+            min: 1,
+            max: 2
+          },
           hour: {               //? The min and max performance in the last hour
             min: 1,
             max: 2
@@ -99,7 +107,7 @@ Config is JSON5 so trailing commas, unquoted keys, and comments are all allowed.
 
 Contributions and feature requests are always welcomed.
 If you need support with anything, feel free to message me on Discord under `Nouun#0246`.
-If you have any issues you're welcome to message me on Discord but it would be prefered to use GitHub Issue.
+If you have any issues you're welcome to message me on Discord but it would be preferred to use GitHub Issue.
 
 ### Donations
 

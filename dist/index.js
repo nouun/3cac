@@ -74,6 +74,8 @@ const run = async () => {
             const checks = [
                 checkMaxMin(data.marketcap, filter?.marketCap),
                 checkMaxMin(data.volume, filter?.volume),
+                checkMaxMin(dataPerf.min5, perf?.min5),
+                checkMaxMin(dataPerf.min15, perf?.min15),
                 checkMaxMin(dataPerf.hour, perf?.hour),
                 checkMaxMin(dataPerf.day, perf?.day),
                 checkMaxMin(dataPerf.week, perf?.week),
@@ -107,8 +109,7 @@ const run = async () => {
             }
             return;
         }
-        
-        let botLastPairs = lastPairs[bot.id]
+        let botLastPairs = lastPairs[bot.id];
         if (!!botLastPairs &&
             botLastPairs.length === pairs.length &&
             botLastPairs.every((value) => pairs.includes(value))) {
