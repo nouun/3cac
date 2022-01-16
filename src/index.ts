@@ -195,7 +195,7 @@ if (validateConfig(config)) {
       console.log("++ Found new pairs:");
       printPairs();
 
-      if (config.readOnly) return;
+      if (progConfig.readOnly) return;
 
       const newBot = bot;
       newBot.pairs = pairs;
